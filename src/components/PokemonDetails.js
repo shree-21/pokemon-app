@@ -1,50 +1,38 @@
 import React from 'react';
-import Evolutions from './Evolutions';
-import {Link} from 'react-router-dom';
-import {getPokemonWithEvolutionsQuery} from '../queries/queries';
+import PokemonListItem from './PokemonListItem';
+import { getPokemonWithEvolutionsQuery } from '../queries/queries';
 import {graphql} from 'react-apollo';
 
+class PokemonDetails extends React.Component {
 
-
-const PokemonDetails = (props) => {
-    const pokemon = props.pokemon;
-    console.log(props);
-
+  render() { 
+    console.log("poke details",this.props)
+    const pokemonId = this.props.match.params.id;
+    if (!pokemonId) return null;
+    const data = this.props.data;
+    if (!data) return null;
+    const pokemon = data.pokemon;
+    if (!pokemon) return null;
+    const evolutions = pokemon.evolutions;
+    if (!evolutions) return null;
     return (
-        <div>
-            <img src={pokemon.image} alt={pokemon.name}></img>
-            <p>Id: {pokemon.id}</p>
-            <p>Number: {pokemon.number}</p>
-            <p>Name: {pokemon.name}</p>
-            <p>maxCP: {pokemon.maxCP}</p>
-            <p>maxHP: {pokemon.maxHP}</p>
-            <p>types: {pokemon.types}</p>
-            {/* <p><Link to={`/${pokemon.id}`} pokemon={pokemon} component={Evolutions} onClick={(e) => <Evolutions />}>More Information</Link></p> */}
-            
-            
-            <ul id="evolution-list">
-                <Link to={`/${pokemon.id}`} pokemon={pokemon} component={Evolutions} onClick={(this.displayEvolutions = (props) => {
-                    const evolution = props.evolution;
-                    
-                    return evolution.map(evolution => {
-                        return (
-                            <div key={evolution.id}>
-                                <Evolutions evolution={evolution} />
-                            </div>
-                        )
-                    })();
-                })}>More Information</Link>
-            </ul>
-        </div>
-    )
+      <div>
+        <PokemonListItem pokemon={pokemon} />
+        {evolutions.map(evolution =>
+          <PokemonListItem key={evolution.id} pokemon={evolution} />
+        )}            
+      </div>
+    );
+  }
 }
 
 // export default PokemonDetails;
-export default graphql(getPokemonWithEvolutionsQuery)(PokemonDetails);
-
-
-
-
-
-// <PokemonListItem props={pokemon} /> 
-// {pokemon.evolutions.map(evolution => <PokemonListItem props={evolution}></PokemonListItem> )}
+export default graphql(getPokemonWithEvolutionsQuery, {
+  options(ownProps) {
+    return {
+      variables: {
+          id: ownProps.match.params.id
+      },
+    };
+  }
+})(PokemonDetails);

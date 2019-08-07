@@ -7,7 +7,6 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import PokemonList from './components/PokemonList';
 import PokemonDetails from './components/PokemonDetails';
 
-
 //apollo client setup
 const client = new ApolloClient({
   uri: 'https://pokemon-samdavies.stylindex.now.sh/'
@@ -20,15 +19,14 @@ class App extends React.Component {
       <ApolloProvider client={client} >
         <BrowserRouter>
           <div className="App">
-            <h1>Pokemon</h1>
-            <Route path='/' component={PokemonList} />
+            <h1 id="pokemon-heading">Pokemon</h1>
+            <Route path='/' exact component={PokemonList} />
             <Route path='/:id' component={PokemonDetails} />
           </div>
         </BrowserRouter>
       </ApolloProvider>
     );
   }
-  
 }
 
 export default App;

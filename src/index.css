@@ -9,13 +9,32 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
-#pokemon-list {
+#pokemon-heading {
+  text-align: center;
+  font-weight: bold;
+}
+
+#pokemon-details {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  flex-flow: column wrap;
+  justify-content: space-around;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 16px;  
+}
+  
+#more-info {
+  align-items: center;
+  text-align: center;
+}
+
+#pokemon-details img {
+  border: 5px solid black;
+  border-radius: 25%;
 }
