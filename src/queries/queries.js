@@ -12,7 +12,7 @@ const getPokemonsQuery = gql`
     types
     }
   }
-`
+`;
 
 const getPokemonWithEvolutionsQuery = gql`
   query($id: String!){
@@ -35,6 +35,6 @@ const getPokemonWithEvolutionsQuery = gql`
       }
     }
   }
-`
+`;
 
 export  {getPokemonsQuery, getPokemonWithEvolutionsQuery};

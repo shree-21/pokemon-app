@@ -3,14 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@apollo/react-testing": "^3.0.0",
     "apollo-boost": "^0.4.3",
+    "apollo-mocked-provider": "^3.0.1",
     "cors": "^2.8.5",
     "graphql": "^14.4.2",
+    "graphql-tag": "^2.10.1",
     "react": "^16.8.6",
     "react-apollo": "^2.5.8",
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.1",
-    "react-scripts": "3.0.1"
+    "react-scripts": "3.0.1",
+    "react-test-renderer": "^16.8.6"
   },
   "scripts": {
     "start": "react-scripts start",

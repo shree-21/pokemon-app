@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-// import  {displayPokemons, render} from './components/PokemonList';
 import Enzyme, {shallow, mount} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import {MemoryRouter} from 'react-router-dom';
@@ -16,25 +15,25 @@ it('renders without crashing', () => {
   ReactDOM.unmountComponentAtNode(div);
 });
 
-//pokemon data is fetched 
-describe('pokemons', () => {
-  it('fetch correctly', async () => {
-    const response = await fetch('https://pokemon-samdavies.stylindex.now.sh/')
-    const data = await response.json();
-    expect(data).not.toBeNull();
+
+//checking if the data is not null
+describe('displayPokemons function', () => {
+  test('Exists', () => {
+    const displayPokemons = jest.fn();
+    expect(displayPokemons.props).not.toBeNull();
   });
 });
 
 //function exists
-describe("displayPokemons function", () => {
-  test("Exists", () => {
+describe('displayPokemons function', () => {
+  test('Exists', () => {
     const displayPokemons = jest.fn();
     expect(displayPokemons).toBeDefined();
   });
 });
 
 //checking the Link to path renders correctly
-it("... renders without errors", () => {
+it('renders without errors', () => {
   const wrapper = shallow(
     <MemoryRouter>
       <PokemonDetails />

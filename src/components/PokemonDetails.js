@@ -24,9 +24,8 @@ class PokemonDetails extends React.Component {
       </div>
     );
   }
-}
+};
 
-// export default PokemonDetails;
 export default graphql(getPokemonWithEvolutionsQuery, {
   options(ownProps) {
     return {
