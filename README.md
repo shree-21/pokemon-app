@@ -1,7 +1,7 @@
 <h1>Pokemon App<h1>
 
-<p>This app is built using React, which uses GraphQL and Apollo Client to fetch the data of Pokemons from the GraphQL API. 
-On landing page, the first 10 Pokemons and their details are displayed, and after clicking on "More Information" link on each of these pokemons, their Evolutions are listed along with the pokemon.</p> 
+This app is built using React, which uses GraphQL and Apollo Client to fetch the data of Pokemons from the GraphQL API. 
+On landing page, the first 10 Pokemons and their details are displayed, and after clicking on "More Information" link on each of these pokemons, their Evolutions are listed along with the pokemon.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
